@@ -4,37 +4,37 @@ Check out our repositories:
 
 **Key Technologies**
 
-https://github.com/gelic-idealab/komodo-unity: Unity VR client.
+[komodo-unity](https://github.com/gelic-idealab/komodo-unity): Unity VR client. Provides a virtual head and hands, teleportation, runtime model import, grabbing, stretching, 3D drawing.
 
-https://github.com/gelic-idealab/komodo-relay: Networking relay server.
+[komodo-relay](https://github.com/gelic-idealab/komodo-relay): Networking relay server for multi-user interaction, with messages for custom multi-user code.
 
-https://github.com/gelic-idealab/komodo-portal: Vue.js frontend, NodeJS backend. User, session, and asset management, data reporting, WebRTC communication, platform administration.
+[komodo-portal](https://github.com/gelic-idealab/komodo-portal): Vue.js frontend, NodeJS backend. Account, session, module, and asset management, data reporting, WebRTC communication, platform administration.
 
-https://github.com/gelic-idealab/komodo-db: Docker and initialization scripts for the Komodo MySQL database, supporting the platform portal, relay server, and data pipeline.
+[komodo-data](https://github.com/gelic-idealab/komodo-data): Data pipeline. Download user movement and interaction data. Upcoming.
 
-https://github.com/gelic-idealab/komodo-data: Data pipeline.
+**Supporting Technologies**
 
-** Supporting Technologies **
+[komodo-db](https://github.com/gelic-idealab/komodo-db): Docker and initialization scripts for the Komodo MySQL database, supporting the platform portal, relay server, and data pipeline.
 
-https://github.com/gelic-idealab/komodo-buildserver: The buildserver serves a builds directory with the different versioned and custom builds for Komodo VR clients.
+[komodo-buildserver](https://github.com/gelic-idealab/komodo-buildserver): The buildserver serves Komodo core versions and custom Komodo modules.
 
-https://github.com/gelic-idealab/komodo-rtc: WebRTC signaling server.
+[komodo-rtc](https://github.com/gelic-idealab/komodo-rtc): WebRTC signaling server.
 
-https://github.com/gelic-idealab/komodo-proxy: Traefik proxy server for subdomains.
+[komodo-proxy](https://github.com/gelic-idealab/komodo-proxy): Traefik proxy server for subdomains.
 
 **Current Domain Modules**
 
-https://github.com/gelic-idealab/design-critique: Import Tilt Brush creations and view them in a shared space. 
+[design-critique](https://github.com/gelic-idealab/design-critique): Import Tilt Brush creations and view them in a shared space. 
 
 **Upcoming Domain Modules**
 
-https://github.com/gelic-idealab/molecular-dynamics
+[molecular-dynamics](https://github.com/gelic-idealab/molecular-dynamics)
 
-https://github.com/gelic-idealab/impress
+[impress](https://github.com/gelic-idealab/impress)
 
 Coming soon.
 
-https://github.com/gelic-idealab/komodo-vmd
+[vmd](https://github.com/gelic-idealab/komodo-vmd)
 
 Coming soon.
 
