@@ -30,9 +30,9 @@ Check out our repositories:
 
 [molecular-dynamics](https://github.com/gelic-idealab/molecular-dynamics)
 
-[impress](https://github.com/gelic-idealab/impress): Coming soon.
+[impress](https://github.com/gelic-idealab/impress)
 
-[vmd](https://github.com/gelic-idealab/komodo-vmd): Coming soon.
+[vmd](https://github.com/gelic-idealab/komodo-vmd)
 
 **Licenses and Attributions**
 
