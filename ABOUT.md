@@ -8,7 +8,7 @@ Check out our repositories:
 
 [komodo-relay](https://github.com/gelic-idealab/komodo-relay): Networking relay server for multi-user interaction, with messages for custom multi-user code.
 
-[komodo-portal](https://github.com/gelic-idealab/komodo-portal): Vue.js frontend, NodeJS backend. Account, session, module, and asset management, data reporting, WebRTC communication, platform administration.
+[komodo-portal](https://github.com/gelic-idealab/komodo-portal): Vue.js frontend, NodeJS backend. Account, session, module, and asset management. Coming soon: data reporting, WebRTC communication, platform administration.
 
 [komodo-data](https://github.com/gelic-idealab/komodo-data): Data pipeline. Download user movement and interaction data. Upcoming.
 
@@ -30,13 +30,9 @@ Check out our repositories:
 
 [molecular-dynamics](https://github.com/gelic-idealab/molecular-dynamics)
 
-[impress](https://github.com/gelic-idealab/impress)
+[impress](https://github.com/gelic-idealab/impress): Coming soon.
 
-Coming soon.
-
-[vmd](https://github.com/gelic-idealab/komodo-vmd)
-
-Coming soon.
+[vmd](https://github.com/gelic-idealab/komodo-vmd): Coming soon.
 
 **Licenses and Attributions**
 
