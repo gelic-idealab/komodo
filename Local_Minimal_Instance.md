@@ -1,14 +1,4 @@
 # Initializing a Local, Minimal Komodo Instance
-#komodo
-
-----------
-# Log
-
-February 1st, 2022
-TODO: keep moving stuff from [+Deploying a Minimal Komodo Instance](https://paper.dropbox.com/doc/Deploying-a-Minimal-Komodo-Instance-3azYE8qHACfHKgJKgCoSd)  to here!
-
-----------
-----------
 ----------
 # Part 1 — Initialization
 
