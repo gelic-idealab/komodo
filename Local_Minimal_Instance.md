@@ -2,8 +2,6 @@
 ----------
 # Part 1 — Initialization
 
-If you have already followed all the steps below, you can refer to this section to repeat the process.
-
 ## Prerequisites
 
 Download and install all of the following:
@@ -106,14 +104,16 @@ Depending on your configuration, the following values may be different:
 - `database`
 - port (`Komodo relay is running on :`)
 - number of tables
-## WebXR Client (Core or Module)
 
-**Download**
+## WebXR Client (Core or Module) -- Host PC Only with Localhost
+
+### Download
 Download one WebXR Client from [Illinois Box > Komodo > Public > Releases](https://uofi.box.com/s/gsrtdj8bfyxet3gssnefif8d30cpvpk6) and open the client folder.
 
 For example, if you’ve downloaded Impress > v0.1.1, navigate to the v0.1.1 folder on your PC.
 ****
-**Configure**
+### Configure
+
 In a text editor, open `relay.js`. 
 
 Edit the fields to match the configuration of `komodo-relay`: 
@@ -122,12 +122,12 @@ Edit the fields to match the configuration of `komodo-relay`:
     var API_BASE_URL = "localhost:8999"; // this will not be used
     var VR_BASE_URL = "localhost:8888"; // this will not be used
 
-**Run**
+### Run
 In a command line, run `npx serve .` — be sure to include the period.
 
 If prompted to allow some features of the app through Windows Defender Firewall, do allow them.
 
-**Test (Solo)**
+### Test (Solo)
 Successful output looks like this: 
 TODO
 
@@ -149,7 +149,7 @@ In the People tab, a successful connection looks like this:
     
     Client 456 [list of clients, including you]
 
-**Test Capture (if available)**
+### Test Capture (if available)
 In the Settings tab, open the Instructor Menu. Press Start Capture. 
 
 Perform some actions, like moving around, then press End Capture.
@@ -159,22 +159,131 @@ In the file explorer, navigate to `komodo-relay/captures/<session number>/<times
 Check that the format of the messages is correct.
 TODO
 
-**Test (Multiplayer on Host PC only)**
-In a recommended browser, connect to the session with as many clients as you’d like.
+## WebXR Client (Core or Module) -- Host PC and Non-Host PC with Localtunnel
 
-**Test (Multiplayer on multiple devices / WAN)**
-See the tunneling section below.
+### Download
+Download one WebXR Client from [Illinois Box > Komodo > Public > Releases](https://uofi.box.com/s/gsrtdj8bfyxet3gssnefif8d30cpvpk6) and open the client folder.
 
-## VR Headset, Tethered to Host PC
-## VR Headset, Standalone
-## VR Headset, Tethered to Non-Host PC
+For example, if you’ve downloaded Impress > v0.1.1, navigate to the v0.1.1 folder on your PC.
 
-See VR Headset, Standalone.
-****
-## Tunneling (optional)
+### Copy 
 
-**Configure**
-**Test**
+Copy your existing build to reduce confusion
+
+Rename it to, for example, `v0.1.1-localtunnel`.
+
+### Tunnel the relay
+
+Create a tunnel to the relay server port:
+
+In a command line, in the `komodo-relay` directory, do `node serve.js`. 
+
+In a different command line, do this:
+```
+npx localtunnel -p 3000
+```
+
+If prompted to allow some features of the app through Windows Defender Firewall, do allow them.
+
+Successful output looks like this:
+```
+$ npx localtunnel -p 3000
+npx: installed 22 in 2.534s
+your url is: https://<adjective>-<noun>-<num>.loca.lt
+```
+
+DO NOT share this URL with anyone, and be sure to exit the command line when finished using Komodo.
+
+Copy this url.
+
+### Configure the build
+
+Configure the build to use the tunneled relay server port:
+
+In a text editor, in your WebXR Client build folder, open `relay.js`. 
+
+Edit the fields to match the configuration of `komodo-relay`: 
+
+    var RELAY_BASE_URL = "https://<adjective>-<noun>-<num>.loca.lt";
+    var API_BASE_URL = "localhost:8999"; // this will not be used
+    var VR_BASE_URL = "localhost:8888"; // this will not be used
+
+You may wish to keep a copy of the build that doesn't require you to use localtunnel, so that you don't have to use the tunnel for Host-PC-only testing. I recommend annotating the build folder with `-localhost3000` and `-localtunnel` to keep them from getting mixed up.
+
+### Serve the build
+In a command line, in your WebXR Client (`-localtunnel`) build folder, run this:
+```
+npx serve .
+``` 
+Be sure to include the period.
+
+Successful output looks like this:
+
+```
+$ npx serve .
+INFO: Accepting connections at http://localhost:<port-of-build>
+```
+
+### Tunnel the build
+
+In a different command line, do this:
+```
+npx localtunnel -p <port-of-build>
+```
+
+If prompted to allow some features of the app through Windows Defender Firewall, do allow them.
+
+Successful output looks like this:
+```
+$ npx localtunnel -p <port-of-build>
+npx: installed 22 in 2.534s
+your url is: https://<adjective>-<noun>-<num>.loca.lt
+```
+
+DO NOT share this URL with the public, and be sure to exit the command line when finished using Komodo.
+
+Copy this url.
+
+### Agree to the warning
+
+Agree to the Tunnel Warning / Reminder. Every device that you wish to connect to your Host PC's relay server, including the Host PC itself, must agree to the warning.
+
+Visit the relay URL: 
+`https://<adjective>-<noun>-<num>.loca.lt/`
+
+Press `Click to continue` when prompted.
+
+Copy the URL of the build. Example: `https://<adjective>-<noun>-<num>.loca.lt/`
+
+In a text editor or the URL bar of a recommended browser, add URL query parameters to the URL. Example: `https://<adjective>-<noun>-<num>.loca.lt/?session=123&client=456`
+- Two clients connected to the same session will be in the same virtual environment
+- Client numbers must be unique — duplicate connections will be terminated
+
+In a recommended browser, connect to the session with the modified build URL:
+`https://<adjective>-<noun>-<num>.loca.lt/?session=123&client=456`
+
+Press `Click to continue` when prompted.
+
+In the People tab, a successful connection looks like this:
+
+    Komodo Dev (IL) + /sync [server name]
+    123 [session number]
+    /sync#a8aa8a8a8aa8a8a8a8a8a8aa8 [socket ID]
+    Pong: 123ms [ping/pong or errors]
+    
+    Client 456 [list of clients, including you]
+
+You can give the URLs to any Host or Non-Host devices who want to connect. Just don't share them with the public. Make sure to close all your command lines when you are done using Komodo.
+
+### Test Capture (if available)
+In the Settings tab, open the Instructor Menu. Press Start Capture. 
+
+Perform some actions, like moving around, then press End Capture.
+
+In the file explorer, navigate to `komodo-relay/captures/<session number>/<timestamp>/data`. Open the file. You may rename the file to `data.json` if you wish.
+
+Check that the format of the messages is correct.
+TODO
 
 ## Summary of Configuration
 ****# Part 2 — Deployment
@@ -199,18 +308,57 @@ This guide assumes you already have followed steps to set up your VR headset wit
 # Appendix
 ## komodo-db
 
-**Troubleshooting**
-In Docker Desktop, go to Containers / Apps.
+### Troubleshooting `mbind: Operation not permitted` is printed repeatedly. 
 
-1. Expand komodo-db and then select (the child) komodo-db. 
-2. Select the Inspect tab. 
-3. The various env variables should match those in `.env`
-4. Check that the file mounts are set properly —  TODO
-5. The port under 3306/TCP should match TODO
+TODO
+
+### Troubleshooting `Cannot start Docker Compose application`
+
+```
+Cannot start Docker Compose application. Reason: Error invoking remote method 'compose-action': Error: Command failed: docker-compose --file "docker-compose.yml" --project-name "komodo-db" --project-directory "<path>...\komodo-db" up -d Some networks were defined but are not used by any service: proxy
+```
+
+TODO
+
+### Troubleshooting `Ports are not available`
+
+```
+ERROR: for komodo-db 
+Cannot start service db: Ports are not available: listen tcp 0.0.0.0:3306: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted. 
+
+ERROR: for db 
+Cannot start service db: Ports are not available: listen tcp 0.0.0.0:3306: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted. Encountered errors while bringing up the project.
+```
+
+A different application on your PC is using port 3306. Either change the port in the configuration (which means you will need to update `komodo-relay`'s configuration also), or find the program on that port and close it.
+
+So `komodo-db/docker-compose.yml` looks like this: 
+
+```
+...
+    networks:
+      - komodo_internal
+    ports: 
+      - 3308:3306 # host_port (changeable) : container_port (controlled by mysql image)
+
+networks:
+...
+```
+
+Then configure `komodo-relay` to use this port in its `config.js`. 
+
+### Troubleshooting -- Double-checking Inspect tab
+
+1. In Docker Desktop, go to Containers / Apps.
+2. Expand komodo-db and then select (the child) komodo-db. 
+3. Select the Inspect tab. 
+4. The various env variables should match those in `.env`
+5. Check that the file mounts are set properly —  TODO
+6. The port under 3306/TCP should match TODO
 
 `network <name> declared as external, but could not be found` — This means you did not create the docker network in the command line.
 
-Testing if the database was initialized properly — 
+## Troubleshooting -- Testing if the database was initialized properly
 
 1. Double-click the connection in MySQL Workbench to open the connection. 
 2. In the left sidebar, switch the tab from Administration to Schemas. 
@@ -218,8 +366,6 @@ Testing if the database was initialized properly —
 4. Expand that database.
 5. Expand the connections table schema.
 6. TODO — explain the schema
-
-Port 3306 may be in use by another process in your machine. You will need to choose a different port in `docker-compose.yml` and then configure `komodo-relay` to use this port in its `config.js`. TODO 
 
 **Footnotes** 
 [1] We will not use this network, but the current docker-compose.yml configuration expects it.
