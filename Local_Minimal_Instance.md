@@ -384,3 +384,32 @@ Then configure `komodo-relay` to use this port in its `config.js`.
 
 **Footnotes**
 
+## Other
+
+Learn more about the Docker images used in these repos:
+
+* mysql: https://hub.docker.com/_/mysql (komodo-db)
+* node: https://hub.docker.com/_/node (komodo-relay)
+
+Learn more about relevant Docker concepts:
+
+* docker-compose CLI: https://docs.docker.com/compose/
+  * Networks: https://docs.docker.com/compose/networking/
+* Networking overview: https://docs.docker.com/network/
+  * `docker network create`: https://docs.docker.com/engine/reference/commandline/network_create/
+
+Learn more about other packages in these repos:
+
+* socket.io: https://socket.io/docs/v2/ (WebXR Clients)
+
+Read more about the NPM packages used in this guide:
+
+* localtunnel: https://www.npmjs.com/package/localtunnel
+* serve: https://www.npmjs.com/package/serve
+
+Learn about relevant NodeJS and NPM concepts: 
+
+* Running NodeJS scripts: https://nodejs.dev/learn/run-nodejs-scripts-from-the-command-line
+* Node Package Manager (NPM): https://nodejs.dev/learn/an-introduction-to-the-npm-package-manager
+* NPX (NodeJS Package Runner): https://nodejs.dev/learn/the-npx-nodejs-package-runner
+  * https://docs.npmjs.com/cli/v7/commands/npx
