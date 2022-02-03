@@ -386,6 +386,11 @@ Then configure `komodo-relay` to use this port in its `config.js`.
 
 ## Other
 
+Check the WebXR Device API to see which browsers are supported.
+
+* https://caniuse.com/webxr
+* Some browsers may work with the WebVR polyfill.
+
 Learn more about the Docker images used in these repos:
 
 * mysql: https://hub.docker.com/_/mysql (komodo-db)
