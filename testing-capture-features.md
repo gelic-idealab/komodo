@@ -16,7 +16,7 @@ How to manually test capture features:
 * Access your captures folder. 
 	* Institution-hosted: contact your Komodo administrator.
 	* Local, minimal instance: look in your komodo-relay folder.
-* Open the folder <session num>/<timestamp>
+* Open the folder `<session num>/<timestamp>`
 * Option 1: Search the text manually with a text editor.
   * Rename data to data.json
   * Open data.json in a text editor
